@@ -3,14 +3,14 @@ import Button from '@mui/material/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  let navitems = [`About Us`, `Pricing`, `Customers`, `Solutions`];
+  const navitems = ['About Us', 'Pricing', 'Customers', 'Solutions'];
   const [baropen, setbaropen] = useState(false);
 
-  let openphonemenu = () => {
+  const openphonemenu = () => {
     setbaropen(!baropen);
   };
 
-  // Variants for animation
+  // Variants for PC menu items
   const navItemVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: (i) => ({
@@ -23,18 +23,18 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className="w-full flex items-center px-10 py-3 justify-between text-white md:py-5  z-50 bg-[#183A40]"
+        className="w-full flex items-center px-10 py-3 justify-between text-white md:py-5 z-50 bg-[#183A40]"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        viewport={{ once: true }}
+        viewport={{ once: false }} // <-- repeated animation
       >
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <img
             className="w-[63px] h-[14px]"
@@ -43,13 +43,13 @@ const Navbar = () => {
           />
         </motion.div>
 
-        {/* phone hamburger */}
+        {/* Phone Hamburger */}
         <motion.div
           className="md:hidden"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <motion.button
             onClick={openphonemenu}
@@ -67,7 +67,7 @@ const Navbar = () => {
           </motion.button>
         </motion.div>
 
-        {/* pc menu */}
+        {/* PC Menu */}
         <div className="pcmenu hidden md:flex md:flex-col">
           <ul className="flex space-x-6 text-[16px] text-gray-200">
             {navitems.map((item, index) => (
@@ -77,12 +77,8 @@ const Navbar = () => {
                 variants={navItemVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.1,
-                  color: '#0FF1F6',
-                  y: -2,
-                }}
+                viewport={{ once: false }} // repeated animation
+                whileHover={{ scale: 1.1, color: '#0FF1F6', y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <a href="">{item}</a>
@@ -91,13 +87,13 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* pc buttons */}
+        {/* PC Buttons */}
         <motion.div
           className="pc-button hidden md:flex md:space-x-3 md:items-center"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }} // repeated animation
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
@@ -136,7 +132,7 @@ const Navbar = () => {
         </motion.div>
       </motion.nav>
 
-      {/* phone menu */}
+      {/* Phone Menu */}
       <AnimatePresence>
         {baropen && (
           <motion.div
@@ -147,7 +143,7 @@ const Navbar = () => {
             className="overflow-hidden md:hidden bg-black/80 text-white py-5"
           >
             <ul className="flex flex-col space-y-3 font-semibold py-4 px-10">
-              {navitems.map((items, index) => (
+              {navitems.map((item, index) => (
                 <motion.li
                   key={index}
                   whileHover={{ x: 10, color: '#0FF1F6' }}
@@ -155,12 +151,13 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <a href="">{items}</a>
+                  <a href="">{item}</a>
                 </motion.li>
               ))}
-              {/* Phone buttons */}
+
+              {/* Phone Buttons */}
               <motion.div
-                className="flex flex-col  mt-4"
+                className="flex flex-col mt-4"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -173,7 +170,7 @@ const Navbar = () => {
                     color: '#002228',
                     fontWeight: '500',
                     fontSize: '14px',
-                    marginBottom:"10px"
+                    marginBottom: '10px',
                   }}
                 >
                   Book a Demo

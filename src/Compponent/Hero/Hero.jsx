@@ -8,13 +8,15 @@ const Hero = () => {
       <motion.div
         className="flex flex-col space-y-[8px] md:w-1/2 md:flex md:flex-col w-full items-center md:items-start md:px-10"
         initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h2
           className="text-[#0FF1F6] text-[16px] md:text-[24px]"
           initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
           AI SDRs (aiDRs)
@@ -23,7 +25,8 @@ const Hero = () => {
         <motion.h2
           className="italic text-[40px] md:text-[64px] font-semibold"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           More leads, <br /> less people.
@@ -32,7 +35,8 @@ const Hero = () => {
         <motion.p
           className="text-[18px] text-gray-200 md:text-[20px] ml-5 md:w-[80%] md:ml-0"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           Train an aiDR on your ICP and messaging matrix. Activate it on a
@@ -41,7 +45,8 @@ const Hero = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <Button
