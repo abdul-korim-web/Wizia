@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className="w-full flex items-center px-10 py-3 justify-between text-white md:py-5 fixed top-0 left-0 z-50 bg-[#183A40]"
+        className="w-full flex items-center px-10 py-3 justify-between text-white md:py-5  z-50 bg-[#183A40]"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
