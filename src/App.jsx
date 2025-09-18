@@ -8,6 +8,7 @@ import Trustedpartners from './Compponent/trustedpartners/trustedpartners'
 import AiDRs from './Compponent/AiDRs/AiDRs'
 import TrainAi from './Compponent/TrainAi/TrainAi'
 import Slider from './Compponent/Slider/Slider'
+import Allocate from './Compponent/Allocate/Allocate'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <AiDRs/>
       <TrainAi/>
       <Slider/>
+      <Allocate/>
     </>
   )
 }
