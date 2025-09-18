@@ -6,6 +6,7 @@ import Navbar from './Compponent/Navbar/Navbar'
 import Hero from './Compponent/Hero/Hero'
 import Trustedpartners from './Compponent/trustedpartners/trustedpartners'
 import AiDRs from './Compponent/AiDRs/AiDRs'
+import TrainAi from './Compponent/TrainAi/TrainAi'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Hero/>
       <Trustedpartners/>
       <AiDRs/>
+      <TrainAi/>
     </>
   )
 }
