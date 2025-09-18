@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Compponent/Navbar/Navbar'
 import Hero from './Compponent/Hero/Hero'
 import Trustedpartners from './Compponent/trustedpartners/trustedpartners'
+import AiDRs from './Compponent/AiDRs/AiDRs'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <Trustedpartners/>
+      <AiDRs/>
     </>
   )
 }
