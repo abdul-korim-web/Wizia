@@ -10,6 +10,7 @@ import TrainAi from './Compponent/TrainAi/TrainAi'
 import Slider from './Compponent/Slider/Slider'
 import Allocate from './Compponent/Allocate/Allocate'
 import Embrace from './Compponent/Embrace/Embrace'
+import Footer from './Compponent/Footer/Footer'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Slider/>
       <Allocate/>
       <Embrace/>
+      <Footer/>
     </>
   )
 }
