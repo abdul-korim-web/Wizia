@@ -9,6 +9,7 @@ import AiDRs from './Compponent/AiDRs/AiDRs'
 import TrainAi from './Compponent/TrainAi/TrainAi'
 import Slider from './Compponent/Slider/Slider'
 import Allocate from './Compponent/Allocate/Allocate'
+import Embrace from './Compponent/Embrace/Embrace'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <TrainAi/>
       <Slider/>
       <Allocate/>
+      <Embrace/>
     </>
   )
 }
