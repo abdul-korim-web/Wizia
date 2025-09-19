@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
- const navitems = [
-    { item: 'About Us', path: '/about' },
-    { item: 'Pricing', path: '/pricing' },
-    { item: 'Customers', path: '/customers' },
-    { item: 'Solutions', path: '/solutions' },
+  const navitems = [
+    { item: "About Us", path: "/about" },
+    { item: "Pricing", path: "/pricing" },
+    { item: "Customers", path: "/customers" },
+    { item: "Solutions", path: "/solutions" },
   ];
   const [baropen, setbaropen] = useState(false);
-  let native = useNavigate()
+  let native = useNavigate();
 
   const openphonemenu = () => {
     setbaropen(!baropen);
@@ -23,7 +23,7 @@ const Navbar = () => {
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.15, type: 'spring', stiffness: 120 },
+      transition: { delay: i * 0.15, type: "spring", stiffness: 120 },
     }),
   };
 
@@ -33,7 +33,7 @@ const Navbar = () => {
         className="w-full flex items-center px-10 py-3 justify-between text-white md:py-5 z-50 bg-[#183A40]"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: false }} // <-- repeated animation
       >
         {/* Logo */}
@@ -44,11 +44,12 @@ const Navbar = () => {
           viewport={{ once: false }}
         >
           <Link to={`/`}>
-          <img
-            className="w-[63px] h-[14px]"
-            src="/image/Logo.png"
-            alt="wizia logo"
-          /></Link>
+            <img
+              className="w-[63px] h-[14px]"
+              src="/image/Logo.png"
+              alt="wizia logo"
+            />
+          </Link>
         </motion.div>
 
         {/* Phone Hamburger */}
@@ -63,13 +64,11 @@ const Navbar = () => {
             onClick={openphonemenu}
             className="text-[22px]"
             whileTap={{ scale: 0.8, rotate: 90 }}
-            transition={{ type: 'spring', stiffness: 300 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <i
               className={
-                baropen
-                  ? 'fa-solid fa-xmark'
-                  : 'fa-solid fa-bars-staggered'
+                baropen ? "fa-solid fa-xmark" : "fa-solid fa-bars-staggered"
               }
             ></i>
           </motion.button>
@@ -86,7 +85,7 @@ const Navbar = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false }} // repeated animation
-                whileHover={{ scale: 1.1, color: '#0FF1F6', y: -2 }}
+                whileHover={{ scale: 1.1, color: "#0FF1F6", y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link to={item.path}>{item.item}</Link>
@@ -107,14 +106,14 @@ const Navbar = () => {
             <Button
               variant="contained"
               sx={{
-                padding: '5px 16px',
-                borderRadius: '100px',
-                background: '#0FF1F6',
-                color: '#002228',
-                fontFamily: 'Work Sans',
-                fontWeight: '500',
-                fontSize: '14px',
-                boxShadow: '0px 4px 12px rgba(0, 255, 246, 0.4)',
+                padding: "5px 16px",
+                borderRadius: "100px",
+                background: "#0FF1F6",
+                color: "#002228",
+                fontFamily: "Work Sans",
+                fontWeight: "500",
+                fontSize: "14px",
+                boxShadow: "0px 4px 12px rgba(0, 255, 246, 0.4)",
               }}
             >
               Book a Demo
@@ -124,14 +123,17 @@ const Navbar = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               variant="outlined"
+              onClick={() => {
+                native(`/contact`);
+              }}
               sx={{
-                padding: '5px 16px',
-                borderRadius: '100px',
-                color: '#FFFFFF',
-                fontFamily: 'Work Sans',
-                fontWeight: '500',
-                fontSize: '14px',
-                border: '1px solid #FFFFFF',
+                padding: "5px 16px",
+                borderRadius: "100px",
+                color: "#FFFFFF",
+                fontFamily: "Work Sans",
+                fontWeight: "500",
+                fontSize: "14px",
+                border: "1px solid #FFFFFF",
               }}
             >
               Contact Us
@@ -145,17 +147,17 @@ const Navbar = () => {
         {baropen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden md:hidden bg-black/80 text-white py-5"
           >
             <ul className="flex flex-col space-y-3 font-semibold py-4 px-10">
               {navitems.map((item, index) => (
                 <motion.li
                   key={index}
-                  whileHover={{ x: 10, color: '#0FF1F6' }}
-                  transition={{ type: 'spring', stiffness: 200 }}
+                  whileHover={{ x: 10, color: "#0FF1F6" }}
+                  transition={{ type: "spring", stiffness: 200 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
@@ -173,24 +175,28 @@ const Navbar = () => {
                 <Button
                   variant="contained"
                   sx={{
-                    borderRadius: '100px',
-                    background: '#0FF1F6',
-                    color: '#002228',
-                    fontWeight: '500',
-                    fontSize: '14px',
-                    marginBottom: '10px',
+                    borderRadius: "100px",
+                    background: "#0FF1F6",
+                    color: "#002228",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                    marginBottom: "10px",
                   }}
                 >
                   Book a Demo
                 </Button>
                 <Button
+                  onClick={() => {
+                    native(`/contact`);
+                    setbaropen(false)
+                  }}
                   variant="outlined"
                   sx={{
-                    borderRadius: '100px',
-                    color: '#FFFFFF',
-                    fontWeight: '500',
-                    fontSize: '14px',
-                    border: '1px solid #FFFFFF',
+                    borderRadius: "100px",
+                    color: "#FFFFFF",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                    border: "1px solid #FFFFFF",
                   }}
                 >
                   Contact Us
