@@ -43,11 +43,12 @@ const Navbar = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
+          <Link to={`/`}>
           <img
             className="w-[63px] h-[14px]"
             src="/image/Logo.png"
             alt="wizia logo"
-          />
+          /></Link>
         </motion.div>
 
         {/* Phone Hamburger */}
