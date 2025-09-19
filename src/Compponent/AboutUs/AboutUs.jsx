@@ -17,7 +17,7 @@ const AboutUs = () => {
     {
       img: "/image/aboutusPersion2Image.jpg",
       name: "Yousuf Hosain",
-      role: "UI Designer",
+      role: "Graphic designer",
     },
   ];
 

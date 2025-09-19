@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
-
+import {BounceLoader} from "react-spinners"
 
 const Pricing = () => {
+  const [loading, setloading] = useState(false);
   const plans = [
     {
       title: "Basic Plan",
       price: "$29/mo",
-      features: [
-        "Up to 500 contacts",
-        "Email Automation",
-        "Basic Reporting",
-      ],
+      features: ["Up to 500 contacts", "Email Automation", "Basic Reporting"],
     },
     {
       title: "Pro Plan",
@@ -35,10 +32,15 @@ const Pricing = () => {
       ],
     },
   ];
-  const ChoosePlanbtn = ()=>{
-    alert(`This is a demo project So you can not Buy any Plan`)
-    window.open("https://github.com/abdul-korim-web/abdul-korim-web")
-  }
+
+  const ChoosePlanbtn = () => {
+    setloading(true);
+    setTimeout(() => {
+      setloading(false);
+      alert(`This is a demo project So you can not Buy any Plan`);
+      window.open("https://github.com/abdul-korim-web/abdul-korim-web");
+    }, 2000);
+  };
 
   return (
     <section className="px-[24px] py-[60px] md:px-[120px] md:py-[100px] bg-[#002228]">
@@ -81,22 +83,35 @@ const Pricing = () => {
             </p>
             <ul className="flex flex-col space-y-2 mb-6">
               {plan.features.map((feature, i) => (
-                <li key={i} className="text-gray-200 text-[16px] md:text-[18px]">
+                <li
+                  key={i}
+                  className="text-gray-200 text-[16px] md:text-[18px]"
+                >
                   • {feature}
                 </li>
               ))}
             </ul>
             <Button
-              variant="contained" onClick={ChoosePlanbtn}
+              variant="contained"
+              onClick={ChoosePlanbtn}
               sx={{
-                background: "#0FF1F6",
+                background: "linear-gradient(90deg, #0FF1F6, #00C9A7)",
                 color: "#002228",
                 padding: "12px 24px",
                 borderRadius: "100px",
                 fontWeight: 500,
               }}
             >
-              Choose Plan
+              {loading? (
+                <>
+                <BounceLoader size={30} color="#002228" /> <span className="ml-2">please wait</span>
+                </>
+              ):(
+                <>
+                  Choose Your plan
+                </>
+              )}
+              
             </Button>
           </motion.div>
         ))}
