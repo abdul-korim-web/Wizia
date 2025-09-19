@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 import HomeLayout from './Compponent/HomeLayout/HomeLayout'
 import AboutUs from './Compponent/AboutUs/AboutUs'
 import Pricing from './Compponent/Pricing/Pricing';
+import Customers from './Compponent/Customers/Customers';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' key={window.location.pathname} element={<HomeLayout/>}/>
         <Route  path='/about' key={window.location.pathname} element={<AboutUs/>}/>
         <Route  path='/Pricing' key={window.location.pathname} element={<Pricing/>}/>
+        <Route  path='/Customers' key={window.location.pathname} element={<Customers/>}/>
       </Routes>
       
       <Footer/>
