@@ -11,7 +11,7 @@ import HomeLayout from './Compponent/HomeLayout/HomeLayout'
 import AboutUs from './Compponent/AboutUs/AboutUs'
 import Pricing from './Compponent/Pricing/Pricing';
 import Customers from './Compponent/Customers/Customers';
-
+import Solutions from "./Compponent/Solutions/Solutions"
 
 function App() {
   
@@ -29,6 +29,7 @@ function App() {
         <Route  path='/about' key={window.location.pathname} element={<AboutUs/>}/>
         <Route  path='/Pricing' key={window.location.pathname} element={<Pricing/>}/>
         <Route  path='/Customers' key={window.location.pathname} element={<Customers/>}/>
+        <Route  path='/solutions' key={window.location.pathname} element={<Solutions/>}/>
       </Routes>
       
       <Footer/>
