@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const navitems = ['About Us', 'Pricing', 'Customers', 'Solutions'];
+ const navitems = [
+    { item: 'About Us', path: '/about' },
+    { item: 'Pricing', path: '/pricing' },
+    { item: 'Customers', path: '/customers' },
+    { item: 'Solutions', path: '/solutions' },
+  ];
   const [baropen, setbaropen] = useState(false);
+  let native = useNavigate()
 
   const openphonemenu = () => {
     setbaropen(!baropen);
@@ -38,7 +45,7 @@ const Navbar = () => {
         >
           <img
             className="w-[63px] h-[14px]"
-            src="image/Logo.png"
+            src="/image/Logo.png"
             alt="wizia logo"
           />
         </motion.div>
@@ -81,7 +88,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.1, color: '#0FF1F6', y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a href="">{item}</a>
+                <Link to={item.path}>{item.item}</Link>
               </motion.li>
             ))}
           </ul>
@@ -151,7 +158,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <a href="">{item}</a>
+                  <Link to={item.path}>{item.item}</Link>
                 </motion.li>
               ))}
 

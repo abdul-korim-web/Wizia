@@ -18,7 +18,7 @@ const Footer = () => {
         >
           <img
             className="w-[72px] h-[16px] md:h-full"
-            src="image/FooterLogo.png"
+            src="/image/FooterLogo.png"
             alt="FooterLogo.png"
           />
         </motion.div>
