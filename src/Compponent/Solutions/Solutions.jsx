@@ -30,7 +30,7 @@ const Solutions = () => {
   ];
 
   return (
-    <section className="px-[24px] py-[60px] md:px-[120px] md:py-[100px] bg-[#002228]">
+    <section className="px-[24px] py-[60px] md:px-[120px] md:py-[100px] bg-[#002228] min-h-screen">
       {/* Heading */}
       <div className="text-center mb-[60px]">
         <motion.h2

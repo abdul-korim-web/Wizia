@@ -17,18 +17,14 @@ import SingUp from "./Compponent/SingUp/SingUp"
 function App() {
   let [pageLoad,setpageLoad] = useState(true)
   
-  useEffect(() => {
-    
-    let handelChange = ()=>{
+  
+  useEffect(()=>{
+    let Timer = setTimeout(() => {
       setpageLoad(false)
-    }
-    window.addEventListener(`load`,handelChange)
-    return () => {
-      window.removeEventListener(`load`,handelChange)
       
-    };
-  }, []);
+    }, 2000);
 
+  },[])
   if (pageLoad){
     return(
       <div className='flex flex-col h-screen justify-center items-center'>

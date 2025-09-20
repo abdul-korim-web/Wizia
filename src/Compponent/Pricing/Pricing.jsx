@@ -43,7 +43,7 @@ const Pricing = () => {
   };
 
   return (
-    <section className="px-[24px] py-[60px] md:px-[120px] md:py-[100px] bg-[#002228]">
+    <section className="px-[24px] py-[60px] md:px-[120px] md:py-[100px] bg-[#002228] min-h-screen">
       <div className="text-center mb-[60px]">
         <motion.h2
           className="text-[#0FF1F6] text-[20px] md:text-[24px] font-semibold"
