@@ -23,6 +23,10 @@ The project features a clean UI, responsive design, and smooth animations for a 
 
 Experience the app live: [WiZia](https://abdul-wizia-react.netlify.app/)
 
+## 🚀 Figma File
+
+Explore a Figma file: [Click Me](https://www.figma.com/design/mFFkVCIdle2UQzVPzGiAV1/React-Project-1?node-id=1-55&t=BHu9AQ0fZNfCbOSn-0)
+
 ## 🧱 Technologies Used
 
 - <img src="https://raw.githubusercontent.com/github/explore/main/topics/html/html.png" width="24" height="24" style="vertical-align: middle; margin-right: 5px;" /> **HTML5** – For structuring the content.
