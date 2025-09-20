@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
+import "./Navbar.css"
 
 const Navbar = () => {
   const navitems = [
@@ -101,7 +102,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.1, color: "#0FF1F6", y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to={item.path}>{item.item}</Link>
+                <NavLink to={item.path}>{item.item}</NavLink>
               </motion.li>
             ))}
           </ul>
@@ -182,7 +183,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <Link to={item.path} onClick={()=>{setbaropen(!baropen)}}>{item.item}</Link>
+                  <NavLink to={item.path} onClick={()=>{setbaropen(!baropen)}}>{item.item}</NavLink>
                 </motion.li>
               ))}
 
