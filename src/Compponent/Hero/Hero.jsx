@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
 const Hero = () => {
+  const [loadingSingUpBtn,setloadingSingUpBtn] = useState(false)
+  let native = useNavigate()
+  const SingUpBtn = ()=>{
+    setloadingSingUpBtn(true)
+    setTimeout(() => {
+      setloadingSingUpBtn(false)
+      native(`/singup`)
+
+      
+    }, 2000);
+  }
   return (
     <section className="herosection py-20 px-5 bg-[url('/image/bg.png')] bg-no-repeat bg-cover md:w-full md:py-50 md:px-10 md:flex">
       <motion.div
@@ -51,6 +64,7 @@ const Hero = () => {
         >
           <Button
             variant="contained"
+            onClick={SingUpBtn}
             sx={{
               background: "#0FF1F6",
               color: "#002228",
@@ -60,7 +74,11 @@ const Hero = () => {
             }}
           >
             Sign Up for the Beta{" "}
-            <i className="fa-solid fa-arrow-right pl-2 rotate-[-20deg]"></i>
+            {loadingSingUpBtn?(
+              <><ScaleLoader height={20} /></>
+            ):(
+              <><i className="fa-solid fa-arrow-right pl-2 rotate-[-20deg]"></i></>
+            )}
           </Button>
         </motion.div>
       </motion.div>

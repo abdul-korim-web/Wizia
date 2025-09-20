@@ -1,6 +1,4 @@
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Compponent/Navbar/Navbar'
 import { useState, useEffect } from 'react';
@@ -14,6 +12,7 @@ import Customers from './Compponent/Customers/Customers';
 import Solutions from "./Compponent/Solutions/Solutions"
 import { ScaleLoader } from 'react-spinners';
 import ContactUs from './Compponent/ContactUs/ContactUs';
+import SingUp from "./Compponent/SingUp/SingUp"
 
 function App() {
   let [pageLoad,setpageLoad] = useState(true)
@@ -48,6 +47,7 @@ function App() {
         <Route  path='/Customers' key={window.location.pathname} element={<Customers/>}/>
         <Route  path='/solutions' key={window.location.pathname} element={<Solutions/>}/>
         <Route  path='/contact' key={window.location.pathname} element={<ContactUs/>}/>
+        <Route  path='/singup' key={window.location.pathname} element={<SingUp/>}/>
       </Routes>
       
       

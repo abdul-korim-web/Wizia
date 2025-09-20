@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
 const Embrace = () => {
+  const [loadingSingUpBtn,setloadingSingUpBtn] = useState(false)
+  let native = useNavigate()
+  const SingUpBtn = ()=>{
+    setloadingSingUpBtn(true)
+    setTimeout(() => {
+      setloadingSingUpBtn(false)
+      native(`/singup`)
+
+      
+    }, 2000);}
   return (
     <>
       <section>
@@ -54,6 +66,7 @@ const Embrace = () => {
           >
             <Button
               variant="contained"
+              onClick={SingUpBtn}
               sx={{
                 background: "#0FF1F6",
                 color: "#002228",
@@ -63,7 +76,11 @@ const Embrace = () => {
               }}
             >
               Sign Up for the Beta{" "}
-              <i className="fa-solid fa-arrow-right pl-2 rotate-[-20deg]"></i>
+             {loadingSingUpBtn?(
+              <><ScaleLoader height={20} /></>
+            ):(
+              <><i className="fa-solid fa-arrow-right pl-2 rotate-[-20deg]"></i></>
+            )}
             </Button>
           </motion.div>
         </motion.div>

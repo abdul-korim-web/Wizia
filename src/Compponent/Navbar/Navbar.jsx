@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 
 const Navbar = () => {
   const navitems = [
@@ -27,6 +28,18 @@ const Navbar = () => {
     }),
   };
 
+    // BookADemoBtn 
+    const [loadingBookADemoBtn,setloadingBookADemoBtn] = useState(false)
+    let BookADemoBtn = ()=>{
+      setloadingBookADemoBtn(true)
+      setTimeout(() => {
+        window.open(`https://github.com/abdul-korim-web/abdul-korim-web`)
+        setloadingBookADemoBtn(false)
+        setbaropen(!baropen)
+
+      }, 2000);
+    }
+
   return (
     <>
       <motion.nav
@@ -34,7 +47,7 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: false }} // <-- repeated animation
+        viewport={{ once: false }} 
       >
         {/* Logo */}
         <motion.div
@@ -103,7 +116,7 @@ const Navbar = () => {
           viewport={{ once: false }} // repeated animation
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
+            <Button onClick={BookADemoBtn}
               variant="contained"
               sx={{
                 padding: "5px 16px",
@@ -116,7 +129,15 @@ const Navbar = () => {
                 boxShadow: "0px 4px 12px rgba(0, 255, 246, 0.4)",
               }}
             >
-              Book a Demo
+              {loadingBookADemoBtn? (
+               <>
+                <BeatLoader />
+                </>
+              ):(
+                <>
+                Book a Demo
+                </>
+              )}
             </Button>
           </motion.div>
 
@@ -161,7 +182,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                 >
-                  <Link to={item.path}>{item.item}</Link>
+                  <Link to={item.path} onClick={()=>{setbaropen(!baropen)}}>{item.item}</Link>
                 </motion.li>
               ))}
 
@@ -172,7 +193,8 @@ const Navbar = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <Button
+                <Button 
+                  onClick={BookADemoBtn}
                   variant="contained"
                   sx={{
                     borderRadius: "100px",
@@ -183,7 +205,13 @@ const Navbar = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  Book a Demo
+                  {loadingBookADemoBtn?(
+                    <>
+                     <BeatLoader />
+                     </>
+                  ):(
+                    <>Book a Demo</>
+                  )}
                 </Button>
                 <Button
                   onClick={() => {
